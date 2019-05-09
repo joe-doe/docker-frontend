@@ -1,7 +1,3 @@
-# tradeline
-
-Assignment for developer position.
-
 ## Setup Docker API (from [here](https://stackoverflow.com/questions/37178824/how-do-i-find-the-docker-rest-api-url))
 
 Here is how you enabled it on Ubuntu 16.04 (Xenial Xerus).
