@@ -4,16 +4,37 @@ This module contains all routes for Flask application
 import os
 from flask import render_template, url_for, request, flash, redirect
 from werkzeug.utils import secure_filename
+from docker.errors import BuildError, APIError
 
 
-def init_routes(app):
+def init_routes(app, image_obj):
     @app.route("/")
     def index():
         return render_template('index.html')
 
-    @app.route("/build-image", methods=['GET', 'POST'])
+    @app.route("/build-image")
     def build_image():
-        return render_template('build_image.html')
+        dockerfile = os.path.join(app.config['UPLOAD_FOLDER'])
+
+        try:
+            image, image_build_output = image_obj.build(dockerfile)
+        except BuildError as build_error:
+            flash("There was an error during the build: "+build_error.msg)
+            return redirect(url_for('index'))
+        except APIError as api_error:
+            flash("The docker API server returned error: "+api_error.explanation)
+            return redirect(url_for('index'))
+        except TypeError as type_error:
+            flash("Invalid dockerfile path")
+            print(type_error)
+            return redirect(url_for('index'))
+
+        image_build_response = []
+        for line in image_build_output:
+            for key, value in line.items():
+                image_build_response.append("{} {}\n".format(key, value))
+
+        return render_template('build_image.html', image_build_response=image_build_response)
 
     @app.route("/upload", methods=['GET', 'POST'])
     def upload():
