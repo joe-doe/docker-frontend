@@ -1,4 +1,13 @@
 {% extends "base.html" %}
 
 {% block body %}
+
+  {% for line in image_build_response %}
+    <p>{{ line }}</p>
+  {% endfor %}
+
+<form action="/">
+<input type="submit" value="Submit"> Return to menu
+</form>
+
 {% endblock %}
