@@ -117,6 +117,11 @@ def init_routes(app, image_handler, containers_handler):
         flash("Container started successfully")
         return redirect(url_for('index'))
 
+    @app.route("/validate")
+    def validate():
+        status = containers_handler.get_containers_status()
+        return render_template('validate.html', status=status)
+
     @app.route("/monitoring")
     def monitoring():
         return render_template('monitoring.html')
