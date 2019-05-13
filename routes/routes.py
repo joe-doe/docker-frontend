@@ -12,7 +12,7 @@ from docker.errors import (
 )
 
 
-def init_routes(app, image_handler, containers_handler):
+def init_routes(app, image_handler, containers_handler, monitor):
     @app.route("/")
     def index():
         return render_template('index.html')
@@ -124,7 +124,8 @@ def init_routes(app, image_handler, containers_handler):
 
     @app.route("/monitoring")
     def monitoring():
-        return render_template('monitoring.html')
+        information = monitor.get_status()
+        return render_template('monitoring.html', information=information)
 
     @app.route("/logger")
     def logger():
