@@ -1,3 +1,3 @@
 import docker
-client = docker.DockerClient(base_url='tcp://127.0.0.1:2100')
+client = docker.DockerClient(base_url='tcp://0.0.0.0:2100', timeout=7200)
 
