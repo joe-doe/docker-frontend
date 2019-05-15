@@ -1,21 +1,28 @@
 {% extends "base.html" %}
 
 {% block body %}
-Select form list below
+<div>
+    <h2>Select form list below</h2>
+</div>
 
+
+<div>
 <form action="/use-image" method="POST">
-  <ul>
   {% for image in image_list %}
-      <li>
-          <input type="radio" name="image_id" value="{{image.id}}"> {{image.id}}
-      </li>
+    <div class="radio">
+        <label>
+            <input type="radio" name="image_id" value="{{image.id}}"> {{image.id}}
+        </label>
+    </div>
   {% endfor %}
-  </ul>
-  <input type="submit" value="Submit"> Use image selected
+  <input type="submit" value="Use image selected" class="btn btn-large btn-primary">
 </form>
+</div>
 
+<div>
 <form action="/build-image">
-<input type="submit" value="Submit"> Build new image
+<input type="submit" value="Build new image" class="btn btn-large btn-success">
 </form>
+</div>
 
 {% endblock %}

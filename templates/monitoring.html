@@ -1,18 +1,21 @@
 {% extends "base.html" %}
 
 {% block body %}
-  <ul>
-  {% for name, info in information.items() %}
-      <li>
-          <div>Container: <b>{{ name }}</b></div>
-          <br>
-          <div>{{ info }}</div>
-      </li>
-      <br>
-  {% endfor %}
-  </ul>
 
-<form action="/">
-<input type="submit" value="Submit"> Return to menu
-</form>
+{% for name, info in information.items() %}
+<div class="panel panel-primary">
+  <div class="panel-heading">
+      <h2>Container: <b>{{ name }}</b></h2>
+  </div>
+  <div class="panel-body">
+      {{ info }}
+  </div>
+</div>
+{% endfor %}
+
+<div class="text-right">
+    <form action="/index">
+        <input type="submit" value="Return to menu" class="btn btn-large btn-primary">
+    </form>
+</div>
 {% endblock %}

@@ -2,28 +2,44 @@
 
 {% block body %}
 
-<form action="/upload">
-<input type="submit" value="Submit"> Upload Dockerfile
-</form>
+<p class="lead">Select from below.</p>
 
-<form action="/build-image">
-<input type="submit" value="Submit"> Build image
-</form>
+<div class="btn-group btn-group-vertical">
+    <p>
+    <form action="/upload">
+        <input type="submit" value="Upload Dockerfile" class="btn btn-large btn-primary">
+    </form>
+    </p>
 
-<form action="/start-container">
-<input type="submit" value="Submit"> Start containers
-</form>
+    <p>
+    <form action="/build-image">
+        <input type="submit" value="Build image" class="btn btn-large btn-primary">
+    </form>
+    </p>
 
-<form action="/validate">
-<input type="submit" value="Submit"> Validate status
-</form>
+    <p>
+    <form action="/start-container">
+        <input type="submit" value="Start containers" class="btn btn-large btn-primary">
+    </form>
+    </p>
 
-<form action="/monitoring">
-<input type="submit" value="Submit"> Monitoring
-</form>
+    <p>
+    <form action="/validate">
+        <input type="submit" value="Validate status" class="btn btn-large btn-primary">
+    </form>
+    </p>
 
-<form action="/logger">
-<input type="submit" value="Submit"> Aggregated logging
-</form>
+    <p>
+    <form action="/monitoring">
+        <input type="submit" value="Monitoring" class="btn btn-large btn-primary">
+    </form>
+    </p>
+
+    <p>
+    <form action="/logger">
+        <input type="submit" value="Aggregated logging" class="btn btn-large btn-primary">
+    </form>
+    </p>
+</div>
 
 {% endblock %}

@@ -1,13 +1,29 @@
 {% extends "base.html" %}
 
 {% block body %}
-<div id="logs">
+<div class="panel panel-primary">
+  <div class="panel-heading">
+      <h2>Logs from all containers</h2>
+  </div>
+  <div class="panel-body">
+    <div id="logs">
 
+    </div>
+  </div>
 </div>
 
+<div class="text-right">
+    <form action="/logger">
+        <input type="submit" value="Reload" class="btn btn-large btn-primary">
+    </form>
+    <form action="/index">
+        <input type="submit" value="Return to menu" class="btn btn-large btn-primary">
+    </form>
+</div>
+{% endblock %}
 
-<script type="text/javascript" src="//code.jquery.com/jquery-1.4.2.min.js"></script>
- <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/socket.io/1.3.6/socket.io.min.js"></script>
+{% block javascript %}
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/socket.io/1.3.6/socket.io.min.js"></script>
 <script type="text/javascript" charset="utf-8">
 $(document).ready(function(){
     var socket = io.connect('http://' + document.domain + ':' + location.port);
