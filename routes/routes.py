@@ -13,7 +13,7 @@ from docker.errors import (
 
 
 def init_routes(app, image_handler, containers_handler, monitor):
-    @app.route("/")
+    @app.route("/index")
     def index():
         return render_template('index.html')
 
