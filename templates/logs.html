@@ -1,21 +1,17 @@
 {% extends "base.html" %}
 
 {% block body %}
-<h2>Logs from all containers</h2>
-
 <div class="panel panel-primary">
-{% for name, logs in all_logs.items() %}
     <div class="panel-heading">
-        <h2>Container: <b>{{name}}</b></h2>
-  </div>
+      <h2>Log file entries</h2>
+    </div>
   <div class="panel-body">
-      {% for log in logs %}
+      {% for log in all_logs %}
         <div>
           {{ log }}
         </div>
       {% endfor %}
   </div>
-{% endfor %}
 </div>
 
 <div class="text-right">
