@@ -47,11 +47,23 @@ See the result
 {"Platform":{"Name":"Docker Engine - Community"},"Components":[{"Name":"Engine","Version":"18.09.5","Details":{"ApiVersion":"1.39","Arch":"amd64","BuildTime":"2019-04-11T04:10:53.000000000+00:00","Experimental":"false","GitCommit":"e8ff056","GoVersion":"go1.10.8","KernelVersion":"4.15.0-48-generic","MinAPIVersion":"1.12","Os":"linux"}}],"Version":"18.09.5","ApiVersion":"1.39","MinAPIVersion":"1.12","GitCommit":"e8ff056","GoVersion":"go1.10.8","Os":"linux","Arch":"amd64","KernelVersion":"4.15.0-48-generic","BuildTime":"2019-04-11T04:10:53.000000000+00:00"}
 ```
 
+# `EXPERIMENTAL` version
+
+I tried to realtime feed logs from containers to mongodb and then use websockets to retrieve data.
+Everything works fine except the fact that I realize that pymongo needs all application subprocesses created
+before connecting to mongodb server otherwise you get a weird behaviour. 
+
+In my case I use a subprocess to monitor for running containers, feed them to a list and start a new subprocess
+for every new running container that constantly read for logs and write them in mongodb.
+
+I left code commented out on purpose because I intend to continue my effort but I had to deliver something working.
+So comments in code as `EXPERIMENTAL` fall in this case.
+
 # Dependencies
 
 ## System
 
-1. Mongodb
+1. Mongodb `EXPERIMENTAL`
 
    Installation: https://docs.mongodb.com/manual/tutorial/install-mongodb-on-ubuntu/
    
@@ -83,7 +95,7 @@ No need to install manually; just follow installation instructions.
 ## Client
 No need to install anything. Although web browser needs internet connection to access them.
 1. jQuery
-2. socketio
+2. socketio `EXPERIMENTAL`
 3. bootstrap
 
 # Installation
