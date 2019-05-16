@@ -130,3 +130,8 @@ def init_routes(app, image_handler, containers_handler, monitor):
     @app.route("/logger")
     def logger():
         return render_template('logger.html')
+
+    @app.route("/logs")
+    def logs():
+        all_logs = containers_handler.get_logs()
+        return render_template('logs.html', all_logs=all_logs)
