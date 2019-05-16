@@ -133,5 +133,10 @@ def init_routes(app, image_handler, containers_handler, monitor):
 
     @app.route("/logs")
     def logs():
-        all_logs = containers_handler.get_logs()
+        # Sorted by container
+        # all_logs = containers_handler.get_logs()
+        # return render_template('sorted_logs.html', all_logs=all_logs)
+
+        # Mixed as the produced
+        all_logs = containers_handler.read_log_file()
         return render_template('logs.html', all_logs=all_logs)
