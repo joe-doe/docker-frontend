@@ -63,7 +63,8 @@ So comments in code as `EXPERIMENTAL` fall in this case.
 
 ## System
 
-1. Mongodb `EXPERIMENTAL`
+1. Python 3 (tested on python 3.7)
+2. Mongodb `EXPERIMENTAL`
 
    Installation: https://docs.mongodb.com/manual/tutorial/install-mongodb-on-ubuntu/
    
