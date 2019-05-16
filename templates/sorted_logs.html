@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+
+{% block body %}
+<h2>Logs from all containers</h2>
+
+<div class="panel panel-primary">
+{% for name, logs in all_logs.items() %}
+    <div class="panel-heading">
+        <h2>Container: <b>{{name}}</b></h2>
+  </div>
+  <div class="panel-body">
+      {% for log in logs %}
+        <div>
+          {{ log }}
+        </div>
+      {% endfor %}
+  </div>
+{% endfor %}
+</div>
+
+<div class="text-right">
+    <form action="/logs">
+        <input type="submit" value="Reload" class="btn btn-large btn-primary">
+    </form>
+    <form action="/index">
+        <input type="submit" value="Return to menu" class="btn btn-large btn-primary">
+    </form>
+</div>
+{% endblock %}
