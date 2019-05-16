@@ -2,6 +2,7 @@
 Module that contains main application
 and the needed initializations
 """
+import sys
 import os
 from flask import Flask
 from routes.routes import init_routes
@@ -12,6 +13,10 @@ from monitoring.monitoring import Monitor
 # from database.database import get_db
 # from flask_socketio import SocketIO
 # from websocks.websocks import init_websockets
+
+if sys.version_info < (3, 4):
+    print("Sorry Python > 3.4 is needed")
+    sys.exit(0)
 
 app = Flask(__name__)
 app.config['UPLOAD_FOLDER'] = os.path.join(os.path.dirname(__file__), 'uploads')
