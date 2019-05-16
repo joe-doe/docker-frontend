@@ -130,4 +130,10 @@ python assignment.py
 
 Now navigate to http://0.0.0.0:5000/index and enjoy !
 
+# Nice to have
 
+* PEP-8
+* Docstrings
+* Tests
+* Configuration
+* Easy deploy
